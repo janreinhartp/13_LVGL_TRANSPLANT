@@ -1,0 +1,8 @@
+SET(SOURCES ui_scrMain.c
+    ui_srcEngineGauge.c
+    ui.c
+    ui_comp_hook.c
+    ui_helpers.c
+    ui_img_logo_png.c)
+
+add_library(ui ${SOURCES})

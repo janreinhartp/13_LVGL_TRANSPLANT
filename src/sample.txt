@@ -1,0 +1,84 @@
+#include <Arduino.h>
+#include <esp_now.h>
+#include <WiFi.h>
+
+// Structure example to receive data
+// Must match the sender structure
+typedef struct SensorData
+{
+    float waterTempIn;
+    float waterTempOut;
+    float waterFlowRate;
+    float airIntakeTemp;
+    float massFlowIntake;
+    float exhaustTemp;
+    float massFlowExhaust;
+    int rpm;
+    float gasFlowRate;
+    float voltage;
+    float ampere;
+    float loadCell;
+    char dateTime[25];
+} SensorData;
+
+// Create a SensorData variable called sensorData
+SensorData sensorData;
+
+// callback function that will be executed when data is received
+void OnDataRecv(const uint8_t *mac, const uint8_t *incomingData, int len)
+{
+    memcpy(&sensorData, incomingData, sizeof(sensorData));
+    // Also print to serial for debugging
+    Serial.println("Dummy Sensor Data Received:");
+    Serial.print("waterTempIn: ");
+    Serial.println(sensorData.waterTempIn);
+    Serial.print("waterTempOut: ");
+    Serial.println(sensorData.waterTempOut);
+    Serial.print("waterFlowRate: ");
+    Serial.println(sensorData.waterFlowRate);
+    Serial.print("airIntakeTemp: ");
+    Serial.println(sensorData.airIntakeTemp);
+    Serial.print("massFlowIntake: ");
+    Serial.println(sensorData.massFlowIntake);
+    Serial.print("exhaustTemp: ");
+    Serial.println(sensorData.exhaustTemp);
+    Serial.print("massFlowExhaust: ");
+    Serial.println(sensorData.massFlowExhaust);
+    Serial.print("rpm: ");
+    Serial.println(sensorData.rpm);
+    Serial.print("gasFlowRate: ");
+    Serial.println(sensorData.gasFlowRate);
+    Serial.print("voltage: ");
+    Serial.println(sensorData.voltage);
+    Serial.print("ampere: ");
+    Serial.println(sensorData.ampere);
+    Serial.print("loadCell: ");
+    Serial.println(sensorData.loadCell);
+    Serial.print("dateTime: ");
+    Serial.println(sensorData.dateTime);
+    Serial.println("---");
+}
+void setup()
+{
+    // Initialize Serial Monitor
+    Serial.begin(115200);
+
+    // Set device as a Wi-Fi Station
+    WiFi.mode(WIFI_STA);
+
+    // Init ESP-NOW
+    if (esp_now_init() != ESP_OK)
+    {
+        Serial.println("Error initializing ESP-NOW");
+        return;
+    }
+
+    // Once ESPNow is successfully Init, we will register for recv CB to
+    // get recv packer info
+    esp_now_register_recv_cb(esp_now_recv_cb_t(OnDataRecv));
+}
+
+void loop()
+{
+    delay(1000);
+}
