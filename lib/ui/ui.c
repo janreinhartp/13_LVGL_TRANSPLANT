@@ -35,6 +35,7 @@ void ui_init(void)
     lv_disp_set_theme(dispp, theme);
     ui_scrMain_screen_init();
     ui_srcEngineGauge_screen_init();
+    ui_srcGeneratorGauge_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_scrMain);
 }
@@ -43,4 +44,5 @@ void ui_destroy(void)
 {
     ui_scrMain_screen_destroy();
     ui_srcEngineGauge_screen_destroy();
+    ui_srcGeneratorGauge_screen_destroy();
 }

@@ -48,8 +48,10 @@ extern lv_obj_t * ui_Gauge8;
 extern lv_obj_t * ui_arcAirFlowExhaust;
 extern lv_obj_t * ui_txtAirFlowExhaust;
 extern lv_obj_t * ui_Label15;
+extern void ui_event_btnBack(lv_event_t * e);
 extern lv_obj_t * ui_btnBack;
 extern lv_obj_t * ui_Label17;
+extern void ui_event_btnNext(lv_event_t * e);
 extern lv_obj_t * ui_btnNext;
 extern lv_obj_t * ui_Label16;
 // CUSTOM VARIABLES

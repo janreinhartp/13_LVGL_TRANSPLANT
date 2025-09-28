@@ -1,5 +1,6 @@
 ui_scrMain.c
 ui_srcEngineGauge.c
+ui_srcGeneratorGauge.c
 ui.c
 ui_comp_hook.c
 ui_helpers.c

@@ -62,6 +62,23 @@ lv_obj_t * ui_Label17 = NULL;
 lv_obj_t * ui_btnNext = NULL;
 lv_obj_t * ui_Label16 = NULL;
 // event funtions
+void ui_event_btnBack(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_scrMain, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_scrMain_screen_init);
+    }
+}
+
+void ui_event_btnNext(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_srcGeneratorGauge, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_srcGeneratorGauge_screen_init);
+    }
+}
 
 // build funtions
 
@@ -262,9 +279,9 @@ void ui_srcEngineGauge_screen_init(void)
     lv_obj_set_x(ui_Label10, 1);
     lv_obj_set_y(ui_Label10, 61);
     lv_obj_set_align(ui_Label10, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label10, "ENGINE\nRPM");
+    lv_label_set_text(ui_Label10, "RPM");
     lv_obj_set_style_text_align(ui_Label10, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_Label10, &lv_font_montserrat_14, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_Label10, &lv_font_montserrat_12, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_Gauge5 = lv_obj_create(ui_srcEngineGauge);
     lv_obj_remove_style_all(ui_Gauge5);
@@ -476,6 +493,8 @@ void ui_srcEngineGauge_screen_init(void)
     lv_obj_set_style_text_align(ui_Label16, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_Label16, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    lv_obj_add_event_cb(ui_btnBack, ui_event_btnBack, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_btnNext, ui_event_btnNext, LV_EVENT_ALL, NULL);
     uic_arcWaterTempIn = ui_arcWaterTempIn;
     uic_txtWaterTempIn = ui_txtWaterTempIn;
     uic_txtWaterTempOutlet = ui_txtWaterTempOutlet;

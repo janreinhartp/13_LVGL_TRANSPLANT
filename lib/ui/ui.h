@@ -29,6 +29,7 @@ extern "C" {
 
 #include "ui_scrMain.h"
 #include "ui_srcEngineGauge.h"
+#include "ui_srcGeneratorGauge.h"
 
 ///////////////////// VARIABLES ////////////////////
 

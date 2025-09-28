@@ -21,15 +21,13 @@ extern lv_obj_t * ui_Label3;
 extern void ui_event_btnEngineGauge(lv_event_t * e);
 extern lv_obj_t * ui_btnEngineGauge;
 extern lv_obj_t * ui_Label4;
+extern void ui_event_btnGeneratorGauge(lv_event_t * e);
 extern lv_obj_t * ui_btnGeneratorGauge;
 extern lv_obj_t * ui_Label5;
-extern lv_obj_t * ui_btnLoadTesting;
-extern lv_obj_t * ui_Label6;
 // CUSTOM VARIABLES
 extern lv_obj_t * uic_scrMain;
 extern lv_obj_t * uic_btnEngineGauge;
 extern lv_obj_t * uic_btnGeneratorGauge;
-extern lv_obj_t * uic_btnLoadTesting;
 
 #ifdef __cplusplus
 } /*extern "C"*/
