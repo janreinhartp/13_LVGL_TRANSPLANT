@@ -367,7 +367,7 @@ void ui_srcEngineGauge_screen_init(void)
     lv_obj_set_x(ui_Label13, 1);
     lv_obj_set_y(ui_Label13, 61);
     lv_obj_set_align(ui_Label13, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label13, "INTAKE\nAIR TEMP");
+    lv_label_set_text(ui_Label13, "EXHAUST\nAIR TEMP");
     lv_obj_set_style_text_align(ui_Label13, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_Label13, &lv_font_montserrat_14, LV_PART_MAIN | LV_STATE_DEFAULT);
 
